@@ -4,11 +4,11 @@
 package playground;
 
 public class App {
-    public String getGreeting() {
+    public final String getGreeting() {
         return "Hello world.";
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         System.out.println(new App().getGreeting());
     }
 }

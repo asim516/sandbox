@@ -5,28 +5,28 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * User Manual available at https://docs.gradle.org/5.3.1/userguide/tutorial_java_projects.html
  */
-buildscript {
-    ext {
-        springBootVersion = '1.5.3.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+
+    id 'jacoco'
+
+    id 'checkstyle'
+    id "org.springframework.boot" version "2.2.1.RELEASE"
+    id "io.freefair.lombok" version "4.1.5"
+    id "com.github.spotbugs" version "2.0.1"
 }
 
 repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
     mavenCentral()
 }
-
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
-apply plugin: 'checkstyle'
-apply plugin: 'org.springframework.boot'
-
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
